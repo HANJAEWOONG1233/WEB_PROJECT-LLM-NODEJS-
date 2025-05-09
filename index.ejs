@@ -1,0 +1,8 @@
+<!-- views/index.ejs -->
+<div class="container">
+  <h2>Upload PDF for Translation</h2>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="pdfFile" accept="application/pdf" required>
+    <button type="submit">Upload and Translate</button>
+  </form>
+</div>
