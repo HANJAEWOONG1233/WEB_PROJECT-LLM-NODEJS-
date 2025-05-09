@@ -31,6 +31,20 @@ Built using Node.js, Express, and EJS templating, with real-time stream parsing 
 - **Markdown Rendering:** marked  
 
 ---
+## Notes
+
+- **Streaming Handling:** We manually parse each JSON line from the stream, filter out noise (e.g., incomplete chunks, system logs), and combine the meaningful `response` fields.
+- **Postprocessing:** Text is cleaned for duplicate lines, HTML entities, and structured via Markdown.
+- **Security:** `.env` and `uploads/` should be `.gitignore`d for safety.
+
+---
+
+## Future Improvements
+
+- Language selection for translation output  
+- Chunked handling for very large PDFs  
+- Upload progress bar and loader UI  
+- REST API endpoints for external integrations  
 
 ## Project Structure
 
@@ -56,19 +70,4 @@ project/
 
 ---
 
-
-## Notes
-
-- **Streaming Handling:** We manually parse each JSON line from the stream, filter out noise (e.g., incomplete chunks, system logs), and combine the meaningful `response` fields.
-- **Postprocessing:** Text is cleaned for duplicate lines, HTML entities, and structured via Markdown.
-- **Security:** `.env` and `uploads/` should be `.gitignore`d for safety.
-
----
-
-## Future Improvements
-
-- Language selection for translation output  
-- Chunked handling for very large PDFs  
-- Upload progress bar and loader UI  
-- REST API endpoints for external integrations  
 
