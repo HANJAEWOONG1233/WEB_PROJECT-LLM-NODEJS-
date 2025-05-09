@@ -54,6 +54,9 @@ project/
 ├── package.json
 └── .gitignore
 
+
+
+
 ## Notes
 
 - **Streaming Handling:** We manually parse each JSON line from the stream, filter out noise (e.g., incomplete chunks, system logs), and combine the meaningful `response` fields.
@@ -68,3 +71,4 @@ project/
 - Chunked handling for very large PDFs  
 - Upload progress bar and loader UI  
 - REST API endpoints for external integrations  
+
