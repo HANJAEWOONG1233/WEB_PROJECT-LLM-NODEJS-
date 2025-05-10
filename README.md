@@ -94,9 +94,8 @@
     `http://localhost:8000` (또는 `server.js`에 설정된 포트 번호)으로 접속합니다.
 
 ## 📂 폴더 구조 (주요 파일)
-Use code with caution.
-Markdown
-.
+
+
 ├── config/
 │ └── db.js # 데이터베이스 연결 설정
 ├── controllers/
