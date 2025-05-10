@@ -93,30 +93,34 @@
 6.  **웹 브라우저에서 접속:**
     `http://localhost:8000` (또는 `server.js`에 설정된 포트 번호)으로 접속합니다.
 
+
 ## 📂 폴더 구조 (주요 파일)
 
-
+```text
+.
 ├── config/
-│ └── db.js # 데이터베이스 연결 설정
+│   └── db.js               # 데이터베이스 연결 설정
 ├── controllers/
-│ └── pdfController.js # PDF 업로드, 번역, 이력 처리 로직
+│   └── pdfController.js    # PDF 업로드, 번역, 이력 처리 로직
 ├── public/
-│ └── css/
-│ └── style.css # CSS 스타일
+│   └── css/
+│       └── style.css       # CSS 스타일
 ├── routes/
-│ └── index.js # 라우팅 정의
+│   └── index.js            # 라우팅 정의
 ├── utils/
-│ ├── ollamaService.js # Ollama LLM 연동 서비스
-│ └── pdfParser.js # PDF 텍스트 추출 유틸리티
+│   ├── ollamaService.js    # Ollama LLM 연동 서비스
+│   └── pdfParser.js        # PDF 텍스트 추출 유틸리티
 ├── views/
-│ ├── partials/ # (선택적: 부분 템플릿)
-│ ├── history.ejs # 번역 이력 페이지
-│ ├── index.ejs # 메인 업로드 페이지
-│ ├── layout.ejs # 기본 레이아웃
-│ └── result.ejs # 번역 결과 페이지
-├── uploads/ # 업로드된 파일 임시 저장 (Git에는 포함하지 않음 - .gitignore 처리)
+│   ├── history.ejs         # 번역 이력 페이지
+│   ├── index.ejs           # 메인 업로드 페이지
+│   ├── layout.ejs          # 기본 레이아웃
+│   └── result.ejs          # 번역 결과 페이지
+│   └── error.ejs           # (선택적: 오류 페이지)
+├── uploads/                # 업로드된 파일 임시 저장 (Git에는 포함하지 않음 - .gitignore 처리)
+├── .gitignore              # Git 추적 제외 파일/폴더 목록
+├── package-lock.json
 ├── package.json
-├── server.js # 메인 서버 파일
+├── server.js               # 메인 서버 파일
 └── README.md
 
 
