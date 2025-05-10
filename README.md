@@ -4,7 +4,7 @@
 
 이 프로젝트는 사용자가 PDF 파일을 업로드하면 해당 파일의 텍스트를 추출하여 로컬에서 실행 중인 Ollama LLM (예: Llama3)을 통해 영어로 번역하고, 번역된 결과를 사용자에게 보여주는 웹 애플리케이션입니다. 또한, 번역된 내용은 MySQL 데이터베이스에 저장되어 과거 번역 이력을 조회할 수 있는 기능을 제공합니다.
 
-(![image](https://github.com/user-attachments/assets/3fb62501-f467-431a-ba73-67e91f67c27a))  <!-- 프로젝트의 스크린샷이나 GIF를 추가하면 좋습니다. images 폴더를 만들고 그 안에 넣어주세요. -->
+(![image](https://github.com/user-attachments/assets/3fb62501-f467-431a-ba73-67e91f67c27a))
 
 ## ✨ 주요 기능
 
