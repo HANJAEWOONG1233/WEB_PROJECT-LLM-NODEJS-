@@ -49,7 +49,7 @@
     ```
 
 3.  **데이터베이스 설정:**
-    *   MySQL 서버에 접속하여 데이터베이스와 테이블을 생성합니다. (아래 SQL 쿼리 실행)
+        MySQL 서버에 접속하여 데이터베이스와 테이블을 생성합니다. (아래 SQL 쿼리 실행)
         ```sql
         CREATE DATABASE pdf_translator_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
         USE pdf_translator_db;
@@ -62,7 +62,7 @@
         );
         CREATE INDEX idx_created_at ON translations (created_at);
         ```
-    *   `config/db.js` 파일을 열어 실제 MySQL 접속 정보(`user`, `password`)로 수정합니다.
+       `config/db.js` 파일을 열어 실제 MySQL 접속 정보(`user`, `password`)로 수정합니다.
         ```javascript
         // config/db.js 예시
         const mysql = require('mysql2/promise');
