@@ -108,11 +108,6 @@
 
 이 프로젝트는 [MIT 라이선스](LICENSE.md)를 따릅니다. (필요시 LICENSE.md 파일 추가)
 
-## 🙌 기여 방법 (선택 사항)
-
-버그 리포트, 기능 제안, 코드 기여 등 모든 종류의 기여를 환영합니다! 자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md) 파일을 참고해주세요. (필요시 CONTRIBUTING.md 파일 추가)
-
----
 
 
 ## 📂 폴더 구조 (주요 파일)
