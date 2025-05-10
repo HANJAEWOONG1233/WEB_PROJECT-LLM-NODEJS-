@@ -50,6 +50,7 @@
 
 3.  **데이터베이스 설정:**
         MySQL 서버에 접속하여 데이터베이스와 테이블을 생성합니다. (아래 SQL 쿼리 실행)
+    
         ```sql
         CREATE DATABASE pdf_translator_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
         USE pdf_translator_db;
@@ -62,7 +63,9 @@
         );
         CREATE INDEX idx_created_at ON translations (created_at);
         ```
+    
        `config/db.js` 파일을 열어 실제 MySQL 접속 정보(`user`, `password`)로 수정합니다.
+    
         ```javascript
         // config/db.js 예시
         const mysql = require('mysql2/promise');
@@ -78,19 +81,19 @@
         module.exports = pool;
         ```
 
-4.  **`uploads` 폴더 생성:**
+5.  **`uploads` 폴더 생성:**
     프로젝트 루트 디렉토리에 `uploads` 폴더를 생성합니다. 이 폴더는 업로드된 PDF 파일이 임시로 저장되는 곳입니다.
     ```bash
     mkdir uploads
     ```
 
-5.  **애플리케이션 실행:**
+6.  **애플리케이션 실행:**
     ```bash
     npm start
     ```
     (또는 `node server.js` / 개발 중에는 `nodemon server.js`)
 
-6.  **웹 브라우저에서 접속:**
+7.  **웹 브라우저에서 접속:**
     `http://localhost:8000` (또는 `server.js`에 설정된 포트 번호)으로 접속합니다.
 
 ---
