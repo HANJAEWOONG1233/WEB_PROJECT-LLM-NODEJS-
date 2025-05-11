@@ -1,0 +1,9 @@
+<!-- views/error.ejs -->
+<div class="container">
+  <h2>오류 발생</h2>
+  <p><%= message %></p>
+  <% if (process.env.NODE_ENV !== 'production' && typeof error !== 'undefined' && error.stack) { %>
+    <pre><%= error.stack %></pre>
+  <% } %>
+  <a href="/">홈으로 돌아가기</a>
+</div>

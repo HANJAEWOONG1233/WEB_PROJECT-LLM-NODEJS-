@@ -1,12 +1,18 @@
 <!-- views/result.ejs -->
 <div class="container">
   <h2>Translation Result</h2>
-  
+  <% if (typeof originalFilename !== 'undefined') { %>
+    <p><strong>Original File:</strong> <%= originalFilename %></p>
+  <% } %>
   <h3>Original Text:</h3>
-  <p><%= originalText %></p>
-  
+  <textarea readonly rows="10"><%= originalText %></textarea>
   <h3>Translated Text:</h3>
-  <pre><%= translatedText %></pre>
-  
-  <a href="/">Translate another PDF</a>
+  <textarea readonly rows="10"><%= translatedText %></textarea>
+  <br><br>
+  <div class="result-actions">
+    <% if (typeof isHistoryView === 'undefined' || !isHistoryView) { %>
+      <a href="/" class="button-link">Translate another PDF</a>
+    <% } %>
+    <a href="/history" class="button-link">View Translation History</a>
+  </div>
 </div>

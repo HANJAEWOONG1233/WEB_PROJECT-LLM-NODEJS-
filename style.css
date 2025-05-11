@@ -1,27 +1,271 @@
 /* public/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Noto Sans KR', Arial, sans-serif; /* Noto Sans KR 폰트 우선 적용 */
   margin: 0;
   padding: 0;
+  background-color: #f4f7f9; /* 부드러운 배경색 */
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-header, footer {
-  background-color: #f2f2f2;
+header {
+  background-color: #2c3e50; /* 어두운 네이비 계열 */
+  color: #ffffff;
+  padding: 1.5em 2em; /* 좌우 패딩 추가 */
   text-align: center;
-  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex; /* 로고와 네비게이션 정렬을 위해 */
+  justify-content: space-between; /* 로고와 네비게이션 양 끝 정렬 */
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 500;
+}
+
+header nav {
+  margin: 0;
+}
+
+header nav a {
+  color: #ecf0f1; /* 밝은 회색 계열 */
+  text-decoration: none;
+  margin-left: 20px; /* 네비게이션 아이템 간격 */
+  font-weight: 400;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+header nav a:hover, header nav a.active { /* 현재 페이지 표시용 active 클래스 (JS로 추가) */
+  background-color: #3498db; /* 밝은 파란색 계열 */
+  color: #ffffff;
+}
+
+main {
+  flex-grow: 1; /* 푸터를 항상 하단에 위치시키기 위해 */
+  padding: 2em 0;
 }
 
 .container {
+  width: 90%;
+  max-width: 700px; /* 콘텐츠 영역 너비 조정 */
   margin: 2em auto;
-  width: 80%;
-  max-width: 800px;
+  background-color: #ffffff;
+  padding: 30px 40px; /* 내부 패딩 증가 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* 그림자 효과 강화 */
+  border-radius: 8px;
 }
 
-h1, h2, h3 {
-  color: #333;
+h2 {
+  color: #2c3e50; /* 헤더와 일관된 색상 */
+  font-size: 1.6em;
+  font-weight: 700; /* 더 굵게 */
+  border-bottom: 2px solid #e0e6ed; /* 구분선 색상 변경 */
+  padding-bottom: 0.6em;
+  margin-bottom: 1.5em; /* 제목 아래 여백 증가 */
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
+h3 {
+  color: #34495e; /* 약간 밝은 네이비 */
+  font-size: 1.3em;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+}
+
+/* Form Elements */
+input[type="file"] {
+  display: block; /* 버튼처럼 보이게 하기 위해 input 숨김 */
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+label[for="pdfFile"] { /* 파일 선택 버튼 스타일 */
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: 500;
+  color: #3498db;
+  background-color: #ffffff;
+  border: 2px solid #3498db;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  margin-right: 15px; /* 업로드 버튼과의 간격 */
+}
+
+label[for="pdfFile"]:hover {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+#fileNameDisplay { /* 선택된 파일명 표시 */
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+}
+
+
+button[type="submit"], .button-link {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1em;
+  font-weight: 500; /* 버튼 텍스트 굵기 */
+  color: #ffffff;
+  background-color: #3498db; /* 주조색 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+button[type="submit"]:hover, .button-link:hover {
+  background-color: #2980b9; /* 호버 시 약간 어둡게 */
+  transform: translateY(-1px); /* 살짝 올라오는 효과 */
+}
+
+button[type="submit"]:active, .button-link:active {
+    transform: translateY(0px); /* 클릭 시 원래 위치로 */
+}
+
+
+.error-message {
+  color: #c0392b; /* 에러 메시지 색상 */
+  background-color: #fdedec;
+  border: 1px solid #e74c3c;
+  padding: 12px 15px;
+  border-radius: 4px;
+  margin-bottom: 1.5em;
+}
+
+/* Result Page & History Page Textarea */
+textarea[readonly] {
+  width: calc(100% - 22px); /* 패딩 고려 */
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #dce4ec; /* 테두리 색상 변경 */
+  border-radius: 4px;
+  background-color: #f8f9fa; /* 읽기 전용 배경색 */
+  font-family: 'Consolas', 'Monaco', monospace; /* 고정폭 글꼴 */
+  font-size: 0.95em;
+  resize: vertical;
+  min-height: 150px; /* 최소 높이 증가 */
+  margin-bottom: 1em;
+}
+
+/* History List */
+.history-list {
+  list-style-type: none;
+  padding: 0;
+}
+.history-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e6ed;
+  padding: 20px; /* 내부 패딩 증가 */
+  margin-bottom: 20px; /* 아이템 간 간격 증가 */
+  border-radius: 6px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+.history-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* 호버 시 그림자 */
+}
+
+.history-item h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.2em; /* 제목 크기 조정 */
+}
+.history-item h4 a {
+  color: #2980b9; /* 링크 색상 */
+  text-decoration: none;
+  font-weight: 500;
+}
+.history-item h4 a:hover {
+  text-decoration: underline;
+}
+.history-item .timestamp {
+  font-size: 0.85em;
+  color: #7f8c8d; /* 시간 표시 색상 */
+  margin-bottom: 12px;
+}
+.history-item .preview strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #34495e;
+}
+.history-item .text-preview {
+  font-size: 0.9em;
+  color: #555;
+  background-color: #f8f9fa;
+  padding: 8px;
+  border: 1px dashed #e0e6ed;
+  border-radius: 4px;
+  max-height: 70px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.view-details-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+.view-details-link:hover {
+  background-color: #2980b9;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2em 0;
+  margin-top: auto; /* main 영역이 짧을 경우 푸터를 하단에 고정 */
+  background-color: #e9ecef;
+  color: #566573;
+  font-size: 0.9em;
+  border-top: 1px solid #d6dbdf;
+}
+
+/* 링크 스타일 일관성 */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* 파일 업로드 폼 정렬 */
+.upload-form-container {
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    gap: 15px; /* 요소 간 간격 */
+    margin-top: 1em;
+}
+
+/* 결과 페이지 링크 정렬 */
+.result-actions a {
+    margin-right: 15px;
+}
+.result-actions a:last-child {
+    margin-right: 0;
 }

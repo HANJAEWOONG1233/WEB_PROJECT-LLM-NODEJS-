@@ -1,0 +1,25 @@
+<!-- views/history.ejs -->
+<div class="container">
+  <h2>Translation History</h2>
+  <% if (translations && translations.length > 0) { %>
+    <ul class="history-list">
+      <% translations.forEach(function(item) { %>
+        <li class="history-item">
+          <h4><a href="/translation/<%= item.id %>"><%= item.original_filename %></a></h4>
+          <p class="timestamp">번역일: <%= new Date(item.created_at).toLocaleString('ko-KR') %></p>
+          <div class="preview">
+            <strong>원문 미리보기:</strong>
+            <p class="text-preview"><%= item.original_text_preview %>...</p>
+            <strong>번역문 미리보기:</strong>
+            <p class="text-preview"><%= item.translated_text_preview %>...</p>
+          </div>
+          <a href="/translation/<%= item.id %>" class="view-details-link">상세 보기</a>
+        </li>
+      <% }); %>
+    </ul>
+  <% } else { %>
+    <p>번역 이력이 없습니다.</p>
+  <% } %>
+  <br>
+  <a href="/">새로운 PDF 번역하기</a>
+</div>
